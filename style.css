@@ -1,0 +1,86 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #162D3D, #073D28); /* Main background gradient */
+    color: white; /* Ensuring text is readable on the dark background */
+}
+nav {
+    display: flex;
+    justify-content: space-between; /* Adjust to center if needed */
+    align-items: center;
+    padding: 0 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-sizing: 0 4px 8px rgba(0,0,0,0);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+nav .company-name,
+nav ul {
+    flex: 1; /* This gives equal weight to both the company name and the nav list, centering the items */
+    display: flex;
+    justify-content: center; /* Center the navigation links */
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    padding: 0 10px; /* This provides spacing between nav items */
+}
+nav ul li a {
+    transition: background-colour 0.3s, colour 0.3s;
+    text-decoration: none;
+    color: white;
+    padding: 14px 16px;
+    display: block;
+}
+nav ul li a:hover, nav ul li a:focus {
+    background-color: #fc6a03;
+    color: black;
+}
+section {
+    padding: 60px 20px;
+    margin-top: 60px; /* Adjust to ensure content starts below the nav */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.8); /* Adds a shadow to it giving it more depth */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+section#home {
+    display: block;
+}
+
+button, input[type="submit"] {
+    background-color: #fc6a03;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: darken(#fc6a03, 10%);
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.1); /* Solid color for footer, matching gradient end */
+    backdrop-filter: blur(10px);
+    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
