@@ -48,20 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('#home').style.display = 'block'; // Show home section
     activateLink(document.querySelector('nav ul li a[href="#home"]')); // Highlight home link
 
-    // Optional: Handle scroll event to set active link based on scroll position
-    // This part is optional and can be used if you want to update the active link while scrolling manually
-    window.addEventListener('scroll', () => {
-        let fromTop = window.scrollY + document.querySelector('nav').offsetHeight;
+    // Handle "Contact Us" form submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
 
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            let section = document.querySelector(link.hash);
+        // Implement the form submission here. For demonstration:
+        alert('Thank you for your message. We will get back to you soon!');
 
-            if (
-                section.offsetTop <= fromTop &&
-                section.offsetTop + section.offsetHeight > fromTop
-            ) {
-                activateLink(link);
-            }
-        });
+        // Reset the form after submission
+        this.reset();
     });
 });
