@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault(); // Prevent the default anchor behavior
             const sectionId = this.getAttribute('href'); // Get the section ID to show
 
+            // Store the current section ID in localStorage
+            localStorage.setItem('lastVisitedSection', sectionId);
+
             showSection(sectionId); // Show the clicked section
             activateLink(this); // Highlight the clicked navigation link
 
@@ -43,19 +46,39 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Initially, hide all sections except 'Home'
-    hideAllSections();
-    document.querySelector('#home').style.display = 'block'; // Show home section
-    activateLink(document.querySelector('nav ul li a[href="#home"]')); // Highlight home link
+    // Check for and show the last visited section, or default to 'Home'
+    function showLastVisitedSection() {
+        const lastVisitedSection = localStorage.getItem('lastVisitedSection');
+        if (lastVisitedSection && document.querySelector(lastVisitedSection)) {
+            showSection(lastVisitedSection);
+            activateLink(document.querySelector(`nav ul li a[href="${lastVisitedSection}"]`));
+        } else {
+            showSection('#home');
+            activateLink(document.querySelector('nav ul li a[href="#home"]'));
+        }
+    }
 
-    // Handle "Contact Us" form submission
+    showLastVisitedSection(); // Initial call replaced with this function
+
+    // Handle "Contact Us" form submission with AJAX
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
 
-        // Implement the form submission here. For demonstration:
-        alert('Thank you for your message. We will get back to you soon!');
+        const formData = new FormData(this); // Create a FormData object from the form
 
-        // Reset the form after submission
-        this.reset();
+        fetch('your-server-endpoint.php', { // Replace with your actual server-side script URL
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json()) // Assuming the server responds with JSON
+        .then(data => {
+            console.log('Success:', data);
+            alert('Thank you for your message. We will get back to you soon!'); // Show success message
+            this.reset(); // Reset the form after successful submission
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again later.'); // Show error message
+        });
     });
 });
