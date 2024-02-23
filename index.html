@@ -250,21 +250,5 @@
     © 2024 Sounds Good Tech. All rights reserved.
 </footer>
 <script src="script.js"></script>
-<script src="https://smtpjs.com/v3/smtp.js"></script>
-<script>
-    function sendemail(){
-                Email.send({
-                Host : "smtp.elasticemail.com",
-                Username : "username",
-                Password : "password",
-                To : 'them@website.com',
-                From : "you@isp.com",
-                Subject : "This is the subject",
-                Body : "And this is the body"
-            }).then(
-            message => alert(message)
-        );               
-    }
-</script>
 </body>
 </html>
