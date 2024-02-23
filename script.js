@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Hide all sections except the first one (Home)
+    // Hide all sections except for the first one (Home)
     function hideAllSections() {
         document.querySelectorAll('section').forEach(section => {
             section.style.display = 'none';
@@ -25,24 +25,47 @@ document.addEventListener("DOMContentLoaded", () => {
         link.classList.add('active');
     }
 
+    // Function to show the selected system category
+    function showSystemCategory(categoryId) {
+        // Hide all categories
+        document.querySelectorAll('.system-category').forEach(category => {
+            category.style.display = 'none';
+            category.classList.remove('active');
+        });
+        
+        // Show the selected category
+        const selectedCategory = document.querySelector(categoryId);
+        if (selectedCategory) {
+            selectedCategory.style.display = 'block';
+            // Allow some time for the display change before adding the class for opacity transition
+            setTimeout(() => selectedCategory.classList.add('active'), 10);
+        }
+    }
+
     // Event listener for navigation link clicks
     document.querySelectorAll('nav ul li a').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault(); // Prevent the default anchor behavior
             const sectionId = this.getAttribute('href'); // Get the section ID to show
 
-            // Store the current section ID in localStorage
-            localStorage.setItem('lastVisitedSection', sectionId);
-
-            showSection(sectionId); // Show the clicked section
-            activateLink(this); // Highlight the clicked navigation link
+            if (sectionId.startsWith("#systems-")) {
+                // If it's a systems subsection, handle separately
+                showSystemCategory(sectionId);
+            } else {
+                // Handle normal section navigation
+                localStorage.setItem('lastVisitedSection', sectionId);
+                showSection(sectionId); // Show the clicked section
+                activateLink(this); // Highlight the clicked navigation link
+            }
 
             // Smooth scroll to the section
             const section = document.querySelector(sectionId);
-            window.scrollTo({
-                top: section.offsetTop - document.querySelector('nav').offsetHeight,
-                behavior: 'smooth'
-            });
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - document.querySelector('nav').offsetHeight,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -60,25 +83,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showLastVisitedSection(); // Initial call replaced with this function
 
-    // Handle "Contact Us" form submission with AJAX
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+    // Initial setup for system categories, if applicable
+    const initialSystemCategory = '#gaming-pcs'; // Default to gaming PCs
+    showSystemCategory(initialSystemCategory);
 
-        const formData = new FormData(this); // Create a FormData object from the form
-
-        fetch('your-server-endpoint.php', { // Replace with your actual server-side script URL
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json()) // Assuming the server responds with JSON
-        .then(data => {
-            console.log('Success:', data);
-            alert('Thank you for your message. We will get back to you soon!'); // Show success message
-            this.reset(); // Reset the form after successful submission
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again later.'); // Show error message
+    // Event listeners for system sub-nav link clicks (if part of the initial setup)
+    document.querySelectorAll('.sub-nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const categoryId = this.getAttribute('href');
+            showSystemCategory(categoryId); // Show the clicked system category
         });
     });
+
+    
 });

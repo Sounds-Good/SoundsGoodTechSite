@@ -85,60 +85,66 @@ footer {
     bottom: 0;
     width: 100%;
 }
-.service-categories {
-    display: flex;
-    justify-content: space-around;
+.service-category {
+    background-color: rgba(255, 255, 255, 0.15);
+    margin-bottom: 20px;
     padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.category {
-    width: 30%; /* Adjust width as necessary */
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    backdrop-filter: blur(5px); /* Frosted glass effect */
-    padding: 20px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+.service-category h3 {
+    color: #fc6a03;
 }
 
-.category h3 {
-    text-align: center;
-    color: #fc6a03; /* Using the accent color for headings */
-}
-
-.category ul {
-    list-style-type: none; /* Remove default list styling */
+.service-category ul {
+    list-style-type: none;
     padding: 0;
 }
 
-.category li {
-    padding: 10px 0; /* Add padding for list items */
-    border-bottom: 1px solid #fc6a03; /* Add a border to each item */
-    color: white; /* Color of the list item text */
+.service-category ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    color: white;
 }
 
-/* Last child border removal */
-.category li:last-child {
+.service-category ul li:last-child {
     border-bottom: none;
 }
+.service-category ul.sublist {
+    display: flex;
+    justify-content: start;
+    list-style-type: none; /* Removes the bullet points */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Aligns with the parent list */
+}
 
-#contact {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+.service-category ul.sublist li {
+    margin-right: 20px; /* Adds some space between simple and advanced options */
+    padding: 5px 0; /* Slight padding for visual separation */
+    border: none; /* Removes the border for sublist items */
+}
+
+
+.contact-section {
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
-    max-width: 800px;
-    margin: 60px auto 0; /* Center the form in the section */
+    margin-top: 20px;
 }
 
-#contact h2 {
-    color: #fc6a03; /* Accent color for headings */
-    text-align: center;
+.contact-info {
+    margin-bottom: 30px;
 }
 
-#contact p {
-    text-align: center;
-    margin-bottom: 20px;
+.contact-info a {
+    color: #fc6a03;
+    text-decoration: none;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: auto;
 }
 
 .form-group {
@@ -150,16 +156,17 @@ footer {
     margin-bottom: 5px;
 }
 
-.form-group input, .form-group textarea {
+.form-group input, 
+.form-group textarea {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ddd;
-    box-sizing: border-box; /* Ensures padding doesn't increase the size */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 .form-group textarea {
-    height: 150px; /* Adjust based on preference */
+    height: 100px;
 }
 
 button[type="submit"] {
@@ -169,11 +176,96 @@ button[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    display: block;
     width: 100%;
     box-sizing: border-box;
 }
 
 button[type="submit"]:hover {
-    background-color: darken(#fc6a03, 10%);
+    opacity: 0.9;
+}
+
+.system-category {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+}
+.system-category.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+.category-tier {
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust based on your theme */
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 8px; /* Match your design language */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Consistency with service categories */
+}
+
+.category-tier h3 {
+    color: #fc6a03; /* Your accent color */
+}
+
+.category-tier p {
+    color: white; /* Assuming a dark theme background */
+}
+.pc-components {
+    list-style-type: none; /* Removes default list bullet points */
+    padding: 0;
+    margin: 10px 0;
+}
+
+.pc-components li {
+    padding: 5px 0; /* Adds some space between list items */
+    border-bottom: 1px solid #ccc; /* Optional: adds a subtle line between items */
+    color: white; /* Adjust based on your theme */
+}
+
+.pc-components li:last-child {
+    border-bottom: none; /* Removes the border from the last item */
+}
+
+.pc-components strong {
+    color: #fc6a03; /* Your accent color for component names */
+}
+.sub-nav {
+    background: inherit; /* A dark shade for contrast */
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.sub-nav a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #d1d4d8;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 8px 16px;
+    border-radius: 4px; /* Rounded corners */
+    transition: all 0.3s ease;
+    display: inline-block; /* To allow padding and margin */
+}
+
+.sub-nav a:hover, .sub-nav a:focus {
+    background-color: #fc6a03; /* Accent color for hover/focus */
+    color: #ffffff; /* White text on accent background */
+}
+
+.sub-nav a.active {
+    color: #ffffff;
+    background-color: #1b6ec2; /* A different shade to indicate active state */
+    border-bottom: 3px solid #fc6a03; /* Accent color underline */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    .sub-nav a {
+        padding: 8px;
+        font-size: 14px;
+        margin: 0 5px;
+    }
 }
