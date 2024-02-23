@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showLastVisitedSection(); // Initial call replaced with this function
 
     // Initial setup for system categories, if applicable
-    const initialSystemCategory = '#gaming-pcs'; // Default to gaming PCs
+    const initialSystemCategory = '#gaming'; // Default to gaming PCs
     showSystemCategory(initialSystemCategory);
 
     // Event listeners for system sub-nav link clicks (if part of the initial setup)
@@ -93,29 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const categoryId = this.getAttribute('href');
             showSystemCategory(categoryId); // Show the clicked system category
-        });
-    });
-
-    // Handle "Contact Us" form submission with AJAX
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const formData = new FormData(this); // Create a FormData object from the form
-
-        // Placeholder URL - replace with your actual endpoint
-        fetch('your-server-endpoint.php', { 
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json()) // Assuming the server responds with JSON
-        .then(data => {
-            console.log('Success:', data);
-            alert('Thank you for your message. We will get back to you soon!'); // Show success message
-            this.reset(); // Reset the form after successful submission
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again later.'); // Show error message
         });
     });
 });
