@@ -233,18 +233,62 @@ button[type="submit"]:hover {
     background-color: #1b6ec2; /* A different shade to indicate active state */
     border-bottom: 3px solid #fc6a03; /* Accent color underline */
 }
-/* Responsive design adjustments */
-@media (max-width: 600px) {
-    .sub-nav a {
-        padding: 8px;
-        font-size: 14px;
-        margin: 0 5px;
-    }
-}
 .caseimage {
     width: 250px;
     float: right;
     background-color: #FFF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     border-radius: 5px;
+}
+
+
+/* Responsive design adjustments */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+    nav .company-name, nav ul {
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+    section {
+        padding: 30px 10px;
+        margin-top: 80px;
+    }
+    .service-category, .contact-section, .system-category, .category-tier {
+        padding: 15px;
+        margin-top: 15px;
+    }
+    .service-category ul.sublist li, .pc-components li {
+        margin-right: 10px;
+    }
+    .sub-nav a {
+        font-size: 12px;
+        padding: 8px;
+    }
+    .caseimage {
+        width: 20%;
+        float: right;
+        margin: 20px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body, section {
+        font-size: 14px;
+    }
+    section {
+        
+    }
+    nav ul li a {
+        padding: 12px 10px;
+    }
+    .form-group input, .form-group textarea {
+        padding: 8px;
+    }
+    .caseimage {
+        width: 50%;
+        float: right;
+    }
 }
