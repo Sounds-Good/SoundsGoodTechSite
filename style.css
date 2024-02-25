@@ -59,7 +59,6 @@ section {
 section#home {
     display: block;
 }
-
 button, input[type="submit"] {
     background-color: #fc6a03;
     color: white;
@@ -69,11 +68,9 @@ button, input[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
-
 button:hover, input[type="submit"]:hover {
     background-color: darken(#fc6a03, 10%);
 }
-
 footer {
     background-color: rgba(255, 255, 255, 0.1); /* Solid color for footer, matching gradient end */
     backdrop-filter: blur(10px);
@@ -93,22 +90,18 @@ footer {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
     
 }
-
 .service-category h3 {
     color: #fc6a03;
 }
-
 .service-category ul {
     list-style-type: none;
     padding: 0;
 }
-
 .service-category ul li {
     padding: 10px 0;
     border-bottom: 1px solid #ccc;
     color: white;
 }
-
 .service-category ul li:last-child {
     border-bottom: none;
 }
@@ -119,44 +112,35 @@ footer {
     padding: 0; /* Removes default padding */
     margin: 0; /* Aligns with the parent list */
 }
-
 .service-category ul.sublist li {
     margin-right: 20px; /* Adds some space between simple and advanced options */
     padding: 5px 0; /* Slight padding for visual separation */
     border: none; /* Removes the border for sublist items */
 }
-
-
 .contact-section {
     background-color: rgba(255, 255, 255, 0.05);
     padding: 20px;
     border-radius: 8px;
     margin-top: 20px;
 }
-
 .contact-info {
     margin-bottom: 30px;
 }
-
 .contact-info a {
     color: #fc6a03;
     text-decoration: none;
 }
-
 .contact-form {
     max-width: 500px;
     margin: auto;
 }
-
 .form-group {
     margin-bottom: 15px;
 }
-
 .form-group label {
     display: block;
     margin-bottom: 5px;
 }
-
 .form-group input, 
 .form-group textarea {
     width: 100%;
@@ -165,11 +149,9 @@ footer {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
 .form-group textarea {
     height: 100px;
 }
-
 button[type="submit"] {
     background-color: #fc6a03;
     color: white;
@@ -180,11 +162,9 @@ button[type="submit"] {
     width: 100%;
     box-sizing: border-box;
 }
-
 button[type="submit"]:hover {
     opacity: 0.9;
 }
-
 .system-category {
     display: none;
     opacity: 0;
@@ -195,6 +175,9 @@ button[type="submit"]:hover {
     opacity: 1;
     transform: translateY(0);
 }
+.system-category h4 {
+    color: #fc6a03;
+}
 .category-tier {
     background-color: rgba(255, 255, 255, 0.2); /* Adjust based on your theme */
     margin: 10px 0;
@@ -202,7 +185,6 @@ button[type="submit"]:hover {
     border-radius: 8px; /* Match your design language */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Consistency with service categories */
 }
-
 .category-tier h3 {
     color: #fc6a03; /* Your accent color */
 }
@@ -215,17 +197,10 @@ button[type="submit"]:hover {
     padding: 0;
     margin: 10px 0;
 }
-
 .pc-components li {
     padding: 5px 0; /* Adds some space between list items */
-    border-bottom: 1px solid #ccc; /* Optional: adds a subtle line between items */
     color: white; /* Adjust based on your theme */
 }
-
-.pc-components li:last-child {
-    border-bottom: none; /* Removes the border from the last item */
-}
-
 .pc-components strong {
     color: #fc6a03; /* Your accent color for component names */
 }
@@ -237,7 +212,6 @@ button[type="submit"]:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
 }
-
 .sub-nav a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
@@ -250,18 +224,15 @@ button[type="submit"]:hover {
     transition: all 0.3s ease;
     display: inline-block; /* To allow padding and margin */
 }
-
 .sub-nav a:hover, .sub-nav a:focus {
     background-color: #fc6a03; /* Accent color for hover/focus */
     color: #ffffff; /* White text on accent background */
 }
-
 .sub-nav a.active {
     color: #ffffff;
     background-color: #1b6ec2; /* A different shade to indicate active state */
     border-bottom: 3px solid #fc6a03; /* Accent color underline */
 }
-
 /* Responsive design adjustments */
 @media (max-width: 600px) {
     .sub-nav a {
@@ -269,4 +240,11 @@ button[type="submit"]:hover {
         font-size: 14px;
         margin: 0 5px;
     }
+}
+.caseimage {
+    width: 250px;
+    float: right;
+    background-color: #FFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
 }
