@@ -266,6 +266,65 @@ button[type="submit"]:hover {
     border-radius: 5px;
 }
 
+/* Container for the slider, giving it a specific size */
+.slider-container {
+    position: relative;
+    width: 60px; /* Width of the slider */
+    height: 34px; /* Height of the slider */
+    display: inline-block;
+  }
+  
+  /* Hiding the default checkbox appearance */
+  .brand-slider-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* Styling the slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:#ef0707; /* Background color of the slider */
+    transition: .4s;
+    border-radius: 34px; /* Rounded edges for the pill shape */
+  }
+  
+  /* Creating the slider knob */
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px; /* Height of the knob */
+    width: 26px; /* Width of the knob */
+    left: 4px;
+    bottom: 4px;
+    background-color: white; /* Color of the knob */
+    transition: .4s;
+    border-radius: 50%; /* Circular shape */
+  }
+  
+  /* Changing the slider's background color when it's checked */
+  .brand-slider-checkbox:checked + .slider {
+    background-color: #2196F3; /* New background color */
+  }
+  
+  /* Moving the knob to the right when the slider is checked */
+  .brand-slider-checkbox:checked + .slider:before {
+    transform: translateX(26px); /* Move the knob to the right */
+  }
+  
+  /* General styling for the content containers */
+  .brand-content {
+    display: none; /* Initially hidden */
+  }
+  
+  /* Additional styles can be added for specific branding or layout adjustments */
+  
+  
 
 /* Responsive design adjustments */
 @media screen and (max-width: 768px) {

@@ -1,98 +1,67 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Hide all sections except for the first one (Home)
+    // Function to hide all main sections
     function hideAllSections() {
-        document.querySelectorAll('section').forEach(section => {
+        document.querySelectorAll('#home, #services, #systems, #contact').forEach(section => {
             section.style.display = 'none';
         });
     }
 
-    // Show a specific section and hide all others
+    // Function to show a specific section based on its ID
     function showSection(sectionId) {
         hideAllSections();
-        document.querySelector(sectionId).style.display = 'block';
+        const section = document.querySelector(sectionId);
+        if (section) {
+            section.style.display = 'block';
+        }
     }
 
-    // Remove the 'active' class from all navigation links
+    // Function to deactivate all navigation links
     function deactivateAllLinks() {
-        document.querySelectorAll('nav ul li a').forEach(link => {
+        document.querySelectorAll('nav ul li a, .sub-nav a').forEach(link => {
             link.classList.remove('active');
         });
     }
 
-    // Add the 'active' class to the navigation link that corresponds to the visible section
+    // Function to activate the clicked navigation link
     function activateLink(link) {
         deactivateAllLinks();
         link.classList.add('active');
     }
 
-    // Function to show the selected system category
-    function showSystemCategory(categoryId) {
-        // Hide all categories
-        document.querySelectorAll('.system-category').forEach(category => {
-            category.style.display = 'none';
-            category.classList.remove('active');
-        });
-        
-        // Show the selected category
-        const selectedCategory = document.querySelector(categoryId);
-        if (selectedCategory) {
-            selectedCategory.style.display = 'block';
-            // Allow some time for the display change before adding the class for opacity transition
-            setTimeout(() => selectedCategory.classList.add('active'), 10);
+    // Main navigation logic to handle clicks on navigation links
+    function handleNavigation(e) {
+        e.preventDefault(); // Prevent the default anchor action
+        const link = e.target.closest('a'); // Ensure the target is an anchor element
+        const sectionId = link.getAttribute('href'); // Get the href attribute to identify the section ID
+
+        showSection(sectionId);
+        activateLink(link);
+
+        // Save the last visited section in localStorage for persistence across page reloads
+        if (!link.closest('.sub-nav')) { // Only for main nav links, not sub-nav
+            localStorage.setItem('lastVisitedSection', sectionId);
         }
     }
 
-    // Event listener for navigation link clicks
-    document.querySelectorAll('nav ul li a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent the default anchor behavior
-            const sectionId = this.getAttribute('href'); // Get the section ID to show
-
-            if (sectionId.startsWith("#systems-")) {
-                // If it's a systems subsection, handle separately
-                showSystemCategory(sectionId);
-            } else {
-                // Handle normal section navigation
-                localStorage.setItem('lastVisitedSection', sectionId);
-                showSection(sectionId); // Show the clicked section
-                activateLink(this); // Highlight the clicked navigation link
-            }
-
-            // Smooth scroll to the section
-            const section = document.querySelector(sectionId);
-            if (section) {
-                window.scrollTo({
-                    top: section.offsetTop - document.querySelector('nav').offsetHeight,
-                    behavior: 'smooth'
-                });
-            }
-        });
+    // Attach the click event listener to all navigation links
+    document.querySelectorAll('nav ul li a, .sub-nav a').forEach(link => {
+        link.addEventListener('click', handleNavigation);
     });
 
-    // Check for and show the last visited section, or default to 'Home'
+    // Function to show the last visited section or default to the home section
     function showLastVisitedSection() {
         const lastVisitedSection = localStorage.getItem('lastVisitedSection');
         if (lastVisitedSection && document.querySelector(lastVisitedSection)) {
             showSection(lastVisitedSection);
-            activateLink(document.querySelector(`nav ul li a[href="${lastVisitedSection}"]`));
+            activateLink(document.querySelector(`nav ul li a[href="${lastVisitedSection}"], .sub-nav a[href="${lastVisitedSection}"]`));
         } else {
-            showSection('#home');
-            activateLink(document.querySelector('nav ul li a[href="#home"]'));
+            // Default to showing the home section if no last visited section is found
+            const defaultSectionId = '#home';
+            showSection(defaultSectionId);
+            activateLink(document.querySelector(`nav ul li a[href="${defaultSectionId}"], .sub-nav a[href="${defaultSectionId}"]`));
         }
     }
 
-    showLastVisitedSection(); // Initial call replaced with this function
-
-    // Initial setup for system categories, if applicable
-    const initialSystemCategory = '#gaming'; // Default to gaming PCs
-    showSystemCategory(initialSystemCategory);
-
-    // Event listeners for system sub-nav link clicks (if part of the initial setup)
-    document.querySelectorAll('.sub-nav a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const categoryId = this.getAttribute('href');
-            showSystemCategory(categoryId); // Show the clicked system category
-        });
-    });
+    // Initialize the page by showing the last visited or the default section
+    showLastVisitedSection();
 });

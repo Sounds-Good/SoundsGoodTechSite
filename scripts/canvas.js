@@ -11,8 +11,8 @@ var canvas = document.querySelector('canvas');
 
     function drawWaves() {
         var layers = [
-            { color: "rgba(22, 45, 61, 0.5)", speed: 0.02, height: 20, frequency: 0.05 },
-            { color: "rgba(35, 123, 182, 0.3)", speed: 0.04, height: 40, frequency: 0.03 },
+            { color: "rgba(22, 45, 61, 0.5)", speed: 0.07, height: 20, frequency: 0.05 },
+            { color: "rgba(35, 123, 182, 0.3)", speed: 0.09, height: 40, frequency: 0.03 },
             { color: "rgba(7, 61, 8, 0.2)", speed: 0.06, height: 60, frequency: 0.02 },
         ]; // Different layers for ocean waves
 
