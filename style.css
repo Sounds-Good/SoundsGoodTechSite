@@ -38,7 +38,6 @@ nav {
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-
     position: fixed;
     top: 0;
     width: 100%;
@@ -67,7 +66,7 @@ nav ul li a {
 }
 nav ul li a:hover, nav ul li a:focus {
     background-color: #fc6a03;
-    color: black;
+    color: #fff;
 }
 section {
     padding: 60px 20px;
