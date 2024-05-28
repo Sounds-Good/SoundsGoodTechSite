@@ -1,2 +1,6 @@
+# Allow all search engine bots to crawl everything
 User-agent: *
-Disallow : /
+Allow: /
+
+# Sitemap reference (replace with your actual sitemap URL)
+Sitemap: https://www.soundsgoodtech.com/sitemap.xml
