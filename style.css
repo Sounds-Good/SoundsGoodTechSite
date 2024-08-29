@@ -141,6 +141,7 @@ footer {
     padding: 5px 0; /* Slight padding for visual separation */
     border: none; /* Removes the border for sublist items */
 }
+
 .contact-section {
     background-color: rgba(255, 255, 255, 0.05);
     padding:20px;
@@ -158,6 +159,12 @@ footer {
     max-width: 500px;
     margin: auto;
 }
+
+.socialmedia img {
+    padding: 1vw;
+    width: 7.5vw;
+}
+
 .form-group {
     margin-bottom: 15px;
 }
@@ -265,6 +272,9 @@ button[type="submit"]:hover {
     border-radius: 5px;
 }
 
+footer img {
+    padding: 2px;
+}
 
 /* Responsive design adjustments */
 @media screen and (max-width: 768px) {

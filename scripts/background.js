@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Definition for layers of waves with different properties
     var layers = [
-        { color: "rgba(22, 45, 61, 0.5)", speed: 0.02, height: 20, frequency: 0.05 },
-        { color: "rgba(35, 123, 182, 0.3)", speed: 0.04, height: 40, frequency: 0.03 },
-        { color: "rgba(7, 61, 8, 0.2)", speed: 0.06, height: 60, frequency: 0.02 },
+        { color: "rgba(22, 45, 61, 0.5)", speed: 0.09, height: 20, frequency: 0.05 },
+        { color: "rgba(35, 123, 182, 0.3)", speed: 0.04, height: 30, frequency: 0.03 },
+        { color: "rgba(7, 61, 8, 0.2)", speed: 0.08, height: 25, frequency: 0.02 },
     ];
 
     // Function to draw moving wave layers based on the defined layers
@@ -72,7 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Calculate wave positions across the width of the canvas
             for (var i = 0; i <= canvas.width; i++) {
                 var angle = (i + time) * layer.frequency;
-                var y = Math.sin(angle) * layer.height + (canvas.height / 1.2);
+                var y = Math.sin(angle) * layer.height + (canvas.height / 1.1
+                );
                 ctx.lineTo(i, y);
             }
             ctx.lineTo(canvas.width, canvas.height);
