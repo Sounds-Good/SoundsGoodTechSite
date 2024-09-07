@@ -165,6 +165,9 @@ footer {
     width: 7.5vw;
 }
 
+footer img {
+    padding: 2px;
+}
 .form-group {
     margin-bottom: 15px;
 }
@@ -272,9 +275,7 @@ button[type="submit"]:hover {
     border-radius: 5px;
 }
 
-footer img {
-    padding: 2px;
-}
+
 
 /* Responsive design adjustments */
 @media screen and (max-width: 768px) {
