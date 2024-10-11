@@ -46,9 +46,27 @@
     </ul>
 </nav>
 <section id="home">
-    <h1>Welcome to Sounds Good Tech</h1>
-    <h3>Your local tech support partner in Wagga Wagga.</h3>
-    <p>At Sounds Good Tech, we're your neighbors in tech! a Wagga Wagga-based support team dedicated to keeping your digital life running smoothly. Our expertise spans from the simplest software installations to the most complex system setups, ensuring that whether you're gaming or streamlining your business operations, we've got the know-how to elevate your experience. We're committed to our community, offering personalized service that's just a call away. Trust us to be the tech-savvy friends you can rely on. </p>
+    <div class="carousel-container">
+        <div class="carousel">  
+    
+          <div class="slide fade">
+            <img src="./Media/Images/stockphotos/networkserver.jpg" alt="Networking">
+          </div>
+          <div class="slide fade">
+            <img src="./Media/Images/stockphotos/helping.jpg" alt="Helping Eachother">
+          </div>
+          <div class="slide fade">
+            <img src="./Media/Images/stockphotos/teaching.jpg" alt="Education">
+          </div>
+          <div class="slide fade"><img src="./Media/Images/stockphotos/workingtogeher.jpg" alt="Working together"></div>
+        </div>  
+    
+      </div>
+    <div>
+        <h1>Welcome to Sounds Good Tech</h1>
+        <h3>Your local tech support partner in Wagga Wagga.</h3>
+        <p>At Sounds Good Tech, we're your neighbors in tech! a Wagga Wagga-based support team dedicated to keeping your digital life running smoothly. Our expertise spans from the simplest software installations to the most complex system setups, ensuring that whether you're gaming or streamlining your business operations, we've got the know-how to elevate your experience. We're committed to our community, offering personalized service that's just a call away. Trust us to be the tech-savvy friends you can rely on. </p>
+    </div>
 </section>
 <section id="services">
     <h2>Our Services</h2>
@@ -59,14 +77,7 @@
         <ul>
             <li>Diagnostic / Check up - $75 </li>
             <li>Virus & Malware Removal - $50</li>
-            <li>Software Installation - $30 per application</li>
-            <li>
-                Hardware Upgrade Consultation:
-                <ul class="sublist">
-                    <li>Simple - $30</li>
-                    <li>Advanced - $70</li>
-                </ul>
-            </li>            
+            <li>Website Services - <a href="tel:+61450514924">Call for a quote</a></li>         
             <li>Data Backup - Starting at $150</li>
             <li>Cable Management - $150
                 <ul class="sublist">
@@ -81,10 +92,10 @@
         <h3>Business Services</h3>
         <p>Specialized services tailored for business operations.</p>
         <ul>
-            <li>Managed Network Installation - Call for a quote</li>
-            <li>IT Support Contracts - Call for a quote</li>
-            <li>Server Setup & Maintenance - Call for a quote</li>
-            <li>Cloud Services Integration - Starting at $300</li>
+            <li>Managed Website Services - <a href="tel:+61450514924">Call for a quote</a></li>
+            <li>IT Support Contracts - <a href="tel:+61450514924">Call for a quote</a></li>
+            <li>Server Setup & Maintenance - <a href="tel:+61450514924">Call for a quote</a></li>
+            <li>Cloud Services Integration - <a href="tel:+61450514924">Call for a quote</a></li>
         </ul>
     </div>
     <!-- Callout Fees and Rates -->
@@ -93,8 +104,9 @@
         <ul>
             <li>Standard Hourly Rate - $100 per hour</li>
             <li>Emergency After-Hours Support - $200 per hour</li>
-            <li>Callout Fee In-town - $50</li>
-            <li>Callout Fee Out of Town - $100</li>
+            <li>Public Holiday Rate - $300 per hour</li>
+            <li>Callout Fee In-town - $150</li>   
+            <li>Callout Fee Out of Town - $200</li>
             <li>Minimum/callout On-Site Fee - $150</li>
         </ul>
     </div>
@@ -261,6 +273,20 @@
         <img src="Media/Images/socialmedia/IGBrandAssetPack/StaticGlyph/01GradientGlyph/Instagram_Glyph_Gradient.png" alt="Instagram">
     </a>
     </div>
+    <h4>Need a hand? Feel free to ask!</h3>
+    <form action="https://formsubmit.co/ajax/d6458ab9ad3b8de37dcf16d94b7b49ff" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email"  
+     required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    
+      <div  
+     id="confirmation" style="display: none;">
+        Thank you! Your message has been sent.
+      </div>
+    
 </section>
 <footer>
     © 2024 Sounds Good Tech. All rights reserved.
@@ -273,6 +299,8 @@
 </footer>
 <script src="scripts/nav.js"></script>
 <script src="scripts/background.js"></script>
+<script src="carousel.js"></script>
+<script src="form.js"></script>
 <script async src="https://io.dropinblog.com/embedjs/8622bf15-5237-436d-ab5c-667b8948cf3b.js"></script>
 </body>
 </html>
