@@ -215,11 +215,13 @@ form {
     list-style-type: none; /* Removes the bullet points */
     padding: 0; /* Removes default padding */
     margin: 0; /* Aligns with the parent list */
+    flex-direction: column;
 }
 .service-category ul.sublist li {
     margin-right: 20px; /* Adds some space between simple and advanced options */
     padding: 5px 0; /* Slight padding for visual separation */
     border: none; /* Removes the border for sublist items */
+    
 }
 
 .contact-section {
