@@ -274,7 +274,10 @@
         <input type="email" name="email" placeholder="Your Email" required>
         <input type="number" name="phone number" placeholder="Your Phone Number" required>
         <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+        <button class="g-recaptcha" 
+        data-sitekey="6LcIw2IqAAAAABKYvRvXvijKNF4PlcSmFkVi9VuV" 
+        data-callback='onSubmit' 
+        data-action='submit'>Submit</button>
       </form>
     
       <div  
@@ -292,10 +295,20 @@
         <img src="Media/Images/socialmedia/IGBrandAssetPack/StaticGlyph/02WhiteGlyph/Instagram_Glyph_White.png" style="width: 14px;" alt="Instagram">
     </a>
 </footer>
+<!--My scripts-->
+
 <script src="scripts/nav.js"></script>
 <script src="scripts/background.js"></script>
 <script src="carousel.js"></script>
 <script src="form.js"></script>
+<!--Not my scripts-->
+<script>
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
+    }
+  </script>
+ 
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <script async src="https://io.dropinblog.com/embedjs/8622bf15-5237-436d-ab5c-667b8948cf3b.js"></script>
 </body>
 </html>
